@@ -84,9 +84,9 @@ def visualize_installs(df):
     for i, tick in enumerate(plt.gca().xaxis.get_major_ticks()):
         if i % 3 != 0:
             tick.set_visible(False)
-    plt.xlabel("Liczba pobrań aplikacji")
-    plt.ylabel("Liczba aplikacji")
-    plt.title("Rozkład liczby aplikacji o danej ilości pobrań")
+    plt.xlabel("Number of installs")
+    plt.ylabel("Number of apps")
+    plt.title("Distribution of the number of applications by download count")
     plt.savefig('./graphs/installs.jpg', format='jpg', dpi=300)
     # plt.show()
 
@@ -94,9 +94,9 @@ def visualize_installs(df):
 def visualize_scores(df):
     scores = df['score']
     sns.kdeplot(data=df, x=scores, fill=True)
-    plt.xlabel('Ocena aplikacji')
-    plt.ylabel('Gęstość prawdopodobieństwa')
-    plt.title('Rozkład ocen aplikacji')
+    plt.xlabel('App score')
+    plt.ylabel('Probability density')
+    plt.title('Distribution of the app scores')
     plt.savefig('./graphs/scores.jpg', format='jpg', dpi=300)
     # plt.show()
 
@@ -106,9 +106,9 @@ def visualize_ratings_and_scores(df):
     X.reverse()
     Y.reverse()
     sns.barplot(x=X, y=Y)
-    plt.title("Średnia ilość otrzymanych ocen z oceną w danym przedziale")
-    plt.xlabel("Przedział ocen")
-    plt.ylabel("Średnia ilość otrzymanych ocen")
+    plt.title("Average number of ratings by app belonging to score interval")
+    plt.xlabel("Score interval")
+    plt.ylabel("Average number of ratings")
     plt.savefig('./graphs/ratings_scores.jpg', format='jpg', dpi=300)
     # plt.show()
 
@@ -118,9 +118,9 @@ def visualize_reviews_and_scores(df):
     X.reverse()
     Y.reverse()
     sns.barplot(x=X, y=Y)
-    plt.title("Średnia ilość otrzymanych recenzji w zależności od oceny")
-    plt.xlabel("Przedział ocen")
-    plt.ylabel("Średnia ilość otrzymanych recenzji")
+    plt.title("Average number of reviews by app belonging to score interval")
+    plt.xlabel("Score interval")
+    plt.ylabel("Average number of reviews")
     plt.savefig('./graphs/reviews_scores.jpg', format='jpg', dpi=300)
     # plt.show()
 
@@ -141,15 +141,15 @@ def visualize_categories(df):
     sns.barplot(x=X, y=Y, orient='h', width=0.75, ax=ax)
     for bars_group in ax.containers:
         ax.bar_label(bars_group, padding=2, fontsize=9)
-    ax.set(xlabel="Liczba aplikacji", ylabel="Kategoria")
+    ax.set(xlabel="Number of apps", ylabel="Category")
 
     sns.despine()
     sns.set_style('darkgrid')
     plt.rc('ytick', labelsize=8)
-    plt.title("Liczba aplikacji z poszczególnych kategorii", fontsize=16)
+    plt.title("Number of apps from particular categories", fontsize=16)
     plt.tight_layout()
     plt.savefig('./graphs/categories.jpg', format='jpg', dpi=300)
-    plt.show()
+    # plt.show()
 
 
 def visualize_paid_and_free_apps(df):
@@ -163,13 +163,13 @@ def visualize_paid_and_free_apps(df):
             is_free_dict['free'] += 1
         else:
             is_free_dict['paid'] += 1
-    X = ["Bezpłatna", "Płatna"]
+    X = ["Free", "Paid"]
     Y = list(is_free_dict.values())
     print(is_free_dict)
     sns.barplot(x=X, y=Y)
-    plt.title("Zestawienie płatnych i bezpłatnych aplikacji")
-    plt.xlabel("Typ aplikacji")
-    plt.ylabel("Liczba aplikacji")
+    plt.title("Paid and free apps")
+    plt.xlabel("App type")
+    plt.ylabel("Number of apps")
     plt.savefig('./graphs/paid_free_apps.jpg', format='jpg', dpi=300)
     # plt.show()
 
