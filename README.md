@@ -48,7 +48,7 @@ Navigate to the project’s root directory and execute the following commands:
 pip install -r requirements.txt
 jupyter notebook model.ipynb
 ```
-📌 **Note:** **You can also open the notebook to read it and see the results of my calculations on github by clicking on `model.ipynb`**
+📌 **Note:** **You can also open the notebook to read it and see the results of my calculations on github by clicking on `model.ipynb` or [here](model.ipynb)**
 
 ### **Running the Optimizer Script**
 1. Install dependencies:
